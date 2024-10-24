@@ -1,6 +1,6 @@
+<!-- Not finished this README btw -->
 # CSC 3102 Bookstore Programming Assignment 2
-
-
+<!-- PLEASE give me a better title name -->
 
 
 <!-- TABLE OF CONTENTS -->
