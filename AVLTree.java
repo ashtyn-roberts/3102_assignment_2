@@ -1,12 +1,15 @@
-
-
-
+/**
+* Class for a node in the AVL Tree. Each node represents one book order
+*/
 class AVLTreeNode{
-    int orderID;
+    int orderID; 
     String bookName;
-    AVLTreeNode left, right;
-    int height;
+    AVLTreeNode left, right; // Left and right children of node
+    int height; 
 
+    /**
+    * Constructor for node in AVL Tree
+    */
     AVLTreeNode(int orderID, String bookName){
         this.orderID = orderID;
         this.bookName = bookName;
@@ -16,12 +19,18 @@ class AVLTreeNode{
 
 class AVLTree{
     private AVLTreeNode root;
-
+    
+    /**
+    * 
+    */
    public void insert(int orderID, String bookName){
         root = insert(root, orderID, bookName);
         printTreeDetails();
     }
-
+    
+    /**
+    * 
+    */
     private AVLTreeNode insert (AVLTreeNode node, int orderID, String bookName){
         if (node == null){
             return new AVLTreeNode(orderID, bookName);
@@ -59,11 +68,17 @@ class AVLTree{
         return node;
     }
 
+    /**
+    * 
+    */
     public void delete(int orderID){
         root = delete(root, orderID);
         printTreeDetails();
     }
 
+    /**
+    * 
+    */
     private AVLTreeNode delete(AVLTreeNode root, int orderID){
         if (root == null){
             return root;
@@ -124,40 +139,58 @@ class AVLTree{
         return root;
     }
 
+    /**
+    * Perform In-Order Traversal by calling on helper function
+    */
     public void inOrderTraversal(){
         inOrderTraversal(root);
     }
 
+    /**
+    * Helper Function for inOrderTraversal. Traverses AVL Tree as long as the input node exists.
+    */
     private void inOrderTraversal(AVLTreeNode node){
         if (node != null){
-            inOrderTraversal(node.left);
-            System.out.println("Order ID: " + node.orderID + " Book Name: " + node.bookName);
-            inOrderTraversal(node.right);
+            inOrderTraversal(node.left); // Traverse to left child
+            System.out.println("Order ID: " + node.orderID + " Book Name: " + node.bookName); // Print the Order ID and BookName of the node
+            inOrderTraversal(node.right); // Traverse to right child
         }
     }
 
+    /**
+    * Searches through AVL tree recursively to find the BookName of the target orderID. If the orderID is not in the tree, return NULL. 
+    */
     public String search(int orderID){
         AVLTreeNode node = search(root, orderID);
         return node != null ? node.bookName : null;
     }
 
+    /**
+    * Helper function for search. 
+    */
     private AVLTreeNode search(AVLTreeNode node, int orderID){
-        if (node == null || node.orderID == orderID){
+        if (node == null || node.orderID == orderID){   // Return the node if the current orderID matches target orderID
             return node;
         }
 
-        if (orderID < node.orderID){
+        if (orderID < node.orderID){                // If the target orderID is less than the current orderID, search left subtree
             return search(node.left, orderID);
         }
 
-        return search(node.right, orderID);
+        return search(node.right, orderID);        // If the target orderID is greater than the current orderID, search right subtree
     }
 
+    /**
+    * 
+    */
     public String findMin(){
         AVLTreeNode node = findMin(root);
         return node != null ? node.bookName : null;
     }
 
+    /**
+    * 
+    */
     private AVLTreeNode findMin(AVLTreeNode node){
         while (node.left != null){
             node = node.left;
@@ -166,11 +199,17 @@ class AVLTree{
         return node;
     }
 
+    /**
+    * 
+    */
     public String findMax(){
         AVLTreeNode node = findMax(root);
         return node != null ? node.bookName : null;
     }
 
+    /**
+    * 
+    */
     private AVLTreeNode findMax(AVLTreeNode node){
         while (node.right != null){
             node = node.right;
@@ -179,14 +218,23 @@ class AVLTree{
         return node;
     }
 
+    /**
+    * 
+    */
     private int getHeight(AVLTreeNode node){
         return node == null ? 0 : node.height;
     }
 
+    /**
+    * 
+    */
     private int getBalance (AVLTreeNode node){
         return node == null ? 0: getHeight(node.left) - getHeight(node.right);
     }
 
+    /**
+    * 
+    */
     private AVLTreeNode rotateLeft(AVLTreeNode y){
         AVLTreeNode x= y.right;
         AVLTreeNode T2 = x.left;
@@ -200,6 +248,9 @@ class AVLTree{
         return x;
     }
 
+    /**
+    * 
+    */
     private AVLTreeNode rotateRight(AVLTreeNode y){
         AVLTreeNode x = y.left;
         AVLTreeNode T2 = x.right;
@@ -213,11 +264,17 @@ class AVLTree{
         return x;
     }
 
+    /**
+    * 
+    */
     public void printTreeDetails(){
         System.out.print("Number of Nodes: " + countNodes(root));
         System.out.println(" Height of Tree: " + getHeight(root));
     }
 
+    /**
+    * 
+    */
     private int countNodes(AVLTreeNode node){
         if (node == null){
             return 0;
