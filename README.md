@@ -10,6 +10,7 @@
         <li><a href="#Overview">Overview</a></li>
         <li><a href="#Features">Features</a></li>
         <li><a href="#Requirements">Getting Started</a></li>
+        <li><a href="#How to Use">How to Us</a></li>
         <li><a href="#Contributors">Contributing</a></li>
     </ol>
 </details>
@@ -34,12 +35,27 @@ This project is a program designed for a bookstore to efficiently organize and m
 ## Requirements
 1. **Java Development Kit (JDK):**  
    - JDK version 8 or higher (ensure `javac` and `java` are in the system's PATH).
+   - Java Runtime Environment (JRE) installed on your system. You can download it from <a href="https://www.java.com/en/download/">here</a>.
 
 2. **Libraries Used (from Java Standard Library):**  
    - `java.io.BufferedReader` – For efficient reading of text from input streams.
    - `java.io.FileReader` – To read the contents of files.
    - `java.io.IOException` – To handle I/O-related exceptions.
    - `java.util.Scanner` – For reading input from the console or files.
+
+
+<!-- How to Use -->
+## How to Use
+1. Compile the code
+```bash
+javac BookOrder.java
+```
+
+3. Run the program
+```bash
+java BookOrder
+```
+
 
 <!-- Contributors -->
 ## Contributors
