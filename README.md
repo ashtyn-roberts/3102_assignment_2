@@ -10,7 +10,7 @@
         <li><a href="#Overview">Overview</a></li>
         <li><a href="#Features">Features</a></li>
         <li><a href="#Requirements">Getting Started</a></li>
-        <li><a href="#How to Use">How to Us</a></li>
+        <li><a href="#How to Use">How to Use</a></li>
         <li><a href="#Contributors">Contributing</a></li>
     </ol>
 </details>
