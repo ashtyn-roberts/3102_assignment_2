@@ -61,7 +61,7 @@ java BookOrder
 ## Contributors
 <div style="display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; width: 100%; gap: 10px;">
   <div>Ashtyn Roberts</div>
-  <div>Megan Steinhause</div>
+  <div>Megan Steinhauser</div>
   <div>Jonathan Anderson</div>
   <div>Henry Vo</div>
 </div>
